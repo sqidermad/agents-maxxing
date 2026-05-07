@@ -141,6 +141,7 @@ skill you also invoked:
 | Feature crosses ≥2 layers, or paradigm shift | `construction-discipline` |
 | UI / frontend / dashboard / hero / styling work | `frontend-design-discipline` |
 | Git destructive op, mixed dirty tree, staging for commit | `dirty-worktree-etiquette` |
+| Tool / command / operation fails 3+ times in a row | `failure-surfacing` |
 | Before sending the final answer | `answer-shape-discipline` |
 
 Cursor-shipped skills also fire on their own triggers — `babysit` for
