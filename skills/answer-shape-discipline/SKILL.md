@@ -57,6 +57,37 @@ filler patterns.
   do.
 - Emojis unless the user asked for them.
 
+## Process narration
+
+The user generally values seeing how the agent thinks. The Cursor /
+Codex UI already renders tool-call status inline as the work happens,
+so the **final answer** should not duplicate progress logs from the
+tool stream.
+
+**Keep** in the final answer:
+
+- A one-line framing if the answer needs context. ("Reviewed commit
+  `abc1234` on `feat/foo`.")
+- Substantive thinking that shaped the answer: path corrections
+  ("first review hit a wrong tree, switched to the actual repo"),
+  decision context ("treated this as a merge commit so used `-m`"),
+  honest limitations ("couldn't run lint locally because deps not
+  installed").
+- Anything that explains *why* the answer takes the shape it does.
+
+**Drop** from the final answer:
+
+- "I'll do X now." Just do X and report results.
+- "I've loaded the rubric / opened the file / read the diff." The
+  tool calls in the UI already showed this.
+- Multi-line task plans that just narrate what's about to happen
+  next ("I'll first check A, then B, then C, finally D").
+- Self-status updates with no consequence to the answer.
+
+The test: would removing this line make the user lose information
+they cannot get from the tool-call stream? If no, it's filler — drop
+it. If yes, keep it.
+
 ## Tone calibration
 
 - Casual conversation: just talk like a person.
