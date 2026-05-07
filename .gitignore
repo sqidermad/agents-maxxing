@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local notes / scratch
+.scratch/
+notes.local.md
+
+# Backups produced by install.sh when an existing folder is moved aside
+*.backup-*
