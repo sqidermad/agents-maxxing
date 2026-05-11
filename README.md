@@ -16,7 +16,7 @@ Claude, GPT, Gemini, future ones — sees the same disciplines.
 
 ## What's inside
 
-A spine + seven phase-specific disciplines:
+A spine + eight phase-specific disciplines:
 
 - **`_agent-operating-manual`** — the spine. Five-phase workflow
   (frame → investigate → construct → verify → communicate), the
@@ -38,6 +38,10 @@ A spine + seven phase-specific disciplines:
 - **`answer-shape-discipline`** — final-answer brevity. 70-line cap.
   Prose for small tasks. No filler metaphors. No anti-comparison
   rhetoric.
+- **`resilience-bulkhead-discipline`** — production reliability guardrails
+  for multi-user systems: control-plane vs heavy-plane separation,
+  active-user enforcement across API surfaces, semantic error-code
+  preservation, and anti-lockout admin invariants.
 
 ## Quick install
 

@@ -24,7 +24,7 @@ How `agents-maxxing` is wired and why.
                                                   discipline
 ```
 
-Eight files. One spine. Seven specialised disciplines triggered at
+Nine files. One spine. Eight specialised disciplines triggered at
 specific phases of the work.
 
 ## Why a spine + leaves, not a single megadocument

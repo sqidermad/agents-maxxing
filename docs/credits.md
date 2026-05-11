@@ -82,6 +82,31 @@ If you've ever managed dotfiles with `stow` or `chezmoi`, the install
 script will feel familiar — minus the framework, plus a doctor
 command.
 
+## Cross-model benchmark findings
+
+Recent production hardening findings were validated via comparative
+review loops across:
+
+- Opus 4.7
+- Sonnet 4.6
+- Cursor Premium Agents
+- Codex 5.5 (extra-high)
+- Codex 5.3
+
+The resulting portable rules are captured in
+`resilience-bulkhead-discipline` and include:
+
+- enforce user `active` state across all protected API surfaces,
+- re-check DB user state on refresh-token flow,
+- preserve semantic business error codes across BFF/client layers,
+- separate control-plane fail-fast behavior from heavy-plane bounded
+  processing,
+- block self-deactivation and final-active-admin removal.
+
+Attribution: this was a **multi-model synthesis** driven by real
+production incidents and verified in code reviews, not a single-vendor
+derivation.
+
 ## What's not (yet) credited
 
 If this repo evolves to include skills derived from other public

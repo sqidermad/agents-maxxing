@@ -143,6 +143,7 @@ skill you also invoked:
 | Git destructive op, mixed dirty tree, staging for commit | `dirty-worktree-etiquette` |
 | Tool / command / operation fails 3+ times in a row | `failure-surfacing` |
 | Before sending the final answer | `answer-shape-discipline` |
+| Auth/RBAC/user-state/mission-limit/job-queue changes | `resilience-bulkhead-discipline` |
 
 Cursor-shipped skills also fire on their own triggers — `babysit` for
 PR-merge loops, `canvas` for live React artifacts, `split-to-prs` for
