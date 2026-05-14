@@ -16,7 +16,7 @@ Claude, GPT, Gemini, future ones — sees the same disciplines.
 
 ## What's inside
 
-A spine + eight phase-specific disciplines:
+A spine + ten phase-specific disciplines:
 
 - **`_agent-operating-manual`** — the spine. Five-phase workflow
   (frame → investigate → construct → verify → communicate), the
@@ -42,6 +42,27 @@ A spine + eight phase-specific disciplines:
   for multi-user systems: control-plane vs heavy-plane separation,
   active-user enforcement across API surfaces, semantic error-code
   preservation, and anti-lockout admin invariants.
+- **`upstream-integration-triage`** — diagnose vendor / third-party
+  **HTTP/REST API** failures evidence-first. Reachability → transport
+  → auth → permission → account → payload ladder. HAR redaction
+  gotchas, `.env` shell-source truncation traps, and "is it our code
+  or theirs" rollback decision rules. Scope is HTTP — DB / queue /
+  SDK-mediated / non-HTTP integrations need different tooling (the
+  skill lists them explicitly so an agent does not misapply it).
+- **`twelve-rule-discipline`** — project-wide rule template (12 rules,
+  caution over speed). Owns the three concepts not covered elsewhere:
+  *model-vs-code split* (don't ask the LLM what a switch statement can
+  answer), *hard token budgets* (per-task / per-session, surface
+  breaches), and *intent-encoded tests* (tests fail for a named
+  business reason, not just "got null"). Cross-references existing
+  skills for the other nine rules so nothing is duplicated. Also
+  carries the **"behavioral contract, not wishlist"** framing and the
+  empirical **200-line CLAUDE.md ceiling** from the source research.
+  Lineage: Karpathy (Jan 2026 complaint thread) →
+  [Forrest Chang](https://github.com/forrestchang/andrej-karpathy-skills)
+  (4-rule template) →
+  [Mnilax](https://x.com/Mnilax/status/2053116311132155938) (8 more
+  rules after 30 codebases / 6 weeks).
 
 ## Quick install
 

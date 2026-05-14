@@ -118,6 +118,10 @@ skill you also invoked:
   Two writers + one truth = silent blending.
 - **Single source of truth.** State in two places will diverge. Either
   pick one, or define the synchronisation explicitly.
+- **Surface conflicts, don't average them.** When two patterns
+  contradict, pick one (more recent / more tested), explain why, flag
+  the other for cleanup. Never blend conflicting patterns into a
+  middle path that satisfies neither.
 - **Newest message wins.** Older goals don't haunt you.
 - **Honest verification.** "Compiled" ≠ "works". Trace loops, audit
   deletions, audit symmetry, model intent.
@@ -144,6 +148,8 @@ skill you also invoked:
 | Tool / command / operation fails 3+ times in a row | `failure-surfacing` |
 | Before sending the final answer | `answer-shape-discipline` |
 | Auth/RBAC/user-state/mission-limit/job-queue changes | `resilience-bulkhead-discipline` |
+| 3rd-party **HTTP/REST** API / vendor / OAuth provider failing, "works in browser but not from us", login OK but downstream rejects (DB/queue/SDK/non-HTTP cases are out of scope — see the skill) | `upstream-integration-triage` |
+| Project onboarding, user says "rule N" / "Mnilax rules" / "twelve-rule template", or you need model-vs-code / token-budget / test-intent guidance | `twelve-rule-discipline` |
 
 Cursor-shipped skills also fire on their own triggers — `babysit` for
 PR-merge loops, `canvas` for live React artifacts, `split-to-prs` for

@@ -107,6 +107,45 @@ Attribution: this was a **multi-model synthesis** driven by real
 production incidents and verified in code reviews, not a single-vendor
 derivation.
 
+## What came from external practitioners
+
+Skills derived (in whole or in part) from publicly-shared prompts
+written by other engineers:
+
+- **`twelve-rule-discipline`** — the CLAUDE.md rule template has a
+  three-step lineage worth tracking honestly:
+  1. **Andrej Karpathy** (Jan 26, 2026) posted the original complaint
+     thread on X identifying three failure modes — silent wrong
+     assumptions, over-engineering, orthogonal damage to code that
+     shouldn't have been touched.
+  2. **Forrest Chang** packaged that complaint into a 4-rule
+     CLAUDE.md and shipped it at
+     [`forrestchang/andrej-karpathy-skills`](https://github.com/forrestchang/andrej-karpathy-skills).
+     It became the fastest-growing single-file repo of 2026 (5,828
+     stars day 1, 120K+ stars total). Rules 1–4 in the skill are his
+     packaging.
+  3. **Mnilax / Mnimiy** ([source article](https://x.com/Mnilax/status/2053116311132155938))
+     tested the 4-rule baseline across 30 codebases over 6 weeks and
+     added rules 5–12 to cover failure modes the baseline did not
+     address (multi-step pipelines, token blowouts, conflict-averaging,
+     intent-blind tests, silent successes). Reported mistake rate
+     dropped from 41% vanilla → 11% with 4 rules → 3% with 12 rules.
+
+  Of the twelve rules, nine were already covered by existing skills
+  in this repo (`_agent-operating-manual`, `scope-discipline`,
+  `continuation-sanity-check`, `failure-surfacing`) and are cross-
+  referenced rather than duplicated. Three concepts were genuinely
+  new to this repo and were adopted into the skill body: *use the
+  model only for judgment calls* (rule 5), *token budgets are not
+  advisory* (rule 6), and *tests verify intent, not just behavior*
+  (rule 9). Rule 7 ("surface conflicts, don't average them") was
+  added as a cross-cutting ethos bullet in the operating manual.
+
+  Two framings from Mnilax's article are also adopted as load-bearing
+  context inside the skill: the **"behavioral contract, not wishlist"**
+  framing (every rule must name the mistake it prevents) and the
+  **200-line ceiling** on CLAUDE.md before compliance drops.
+
 ## What's not (yet) credited
 
 If this repo evolves to include skills derived from other public
