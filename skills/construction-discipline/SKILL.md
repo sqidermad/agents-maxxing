@@ -1,15 +1,12 @@
 ---
 name: construction-discipline
 description: >-
-  Run a 5-check construction-discipline gate before declaring any multi-layer
-  or multi-step change done. Use proactively whenever you have just finished
-  a feature that crosses ≥2 layers (BFF/API ↔ store/state ↔ UI, or
-  schema ↔ migration ↔ access path), introduced a new persistence path,
-  refactored from "exclusive" to "additive" semantics, added a UI control
-  that lets the user express intent, or are about to commit/push a PR
-  involving more than one file across distinct concerns. Read this and
-  walk every check before the final commit, before answering "is it
-  ready?", and before opening / updating a PR.
+  Five-check pre-commit gate (loop trace, deletion audit, symmetry audit,
+  intent modeling, regression check) for multi-layer / multi-step changes.
+  Use after any feature crossing ≥2 layers (BFF↔state↔UI,
+  schema↔migration↔access), new persistence paths, exclusive→additive
+  refactors, new user-intent UI controls, or commits/PRs spanning multiple
+  distinct concerns.
 ---
 
 # Construction Discipline Gate
