@@ -95,6 +95,64 @@ To uninstall (removes symlinks; doesn't delete repo):
 ./uninstall.sh
 ```
 
+## Token cost
+
+Honest accounting before you install.
+
+**Two-tier cost model.** Cursor and Codex expose skills in two layers:
+
+1. **Ambient (every session)** — only the YAML `description` field
+   from each `SKILL.md` is loaded into the agent's available-skills
+   index at session start. The agent reads it to decide *whether* to
+   invoke a skill.
+2. **On-demand (when triggered)** — the full skill body is loaded via
+   `Read` only when the agent decides the skill applies. The other
+   eleven skills stay dormant.
+
+**Current ambient cost per skill (description only):**
+
+| Skill | Description | Body (loaded on-demand) |
+| --- | --- | --- |
+| `_agent-operating-manual` | 71 words | 172 lines |
+| `answer-shape-discipline` | 38 words | 115 lines |
+| `construction-discipline` | 42 words | 110 lines |
+| `continuation-sanity-check` | 53 words | 63 lines |
+| `dirty-worktree-etiquette` | 72 words | 129 lines |
+| `failure-surfacing` | 44 words | 97 lines |
+| `frontend-design-discipline` | 73 words | 164 lines |
+| `resilience-bulkhead-discipline` | 54 words | 128 lines |
+| `review-stance` | 59 words | 63 lines |
+| `scope-discipline` | 42 words | 78 lines |
+| `twelve-rule-discipline` | 59 words | 169 lines |
+| `upstream-integration-triage` | 58 words | 209 lines |
+| **Total ambient** | **~665 words ≈ ~865 tokens** | (full bodies sum to ~28K tokens, loaded selectively) |
+
+For context: a typical Claude / GPT coding session runs **50K–200K
+tokens**. The full skill index is **~0.4%–1.7% of session budget**.
+The 12-rule template recommends keeping any single `CLAUDE.md`-style
+file under 200 lines — every skill body here is at or under that
+ceiling.
+
+**Cursor's dual-folder behaviour.** Cursor scans **both**
+`~/.cursor/skills-cursor/` AND `~/.codex/skills/` when both exist, so
+a machine installed with the default `./install.sh` (which symlinks
+into both) effectively doubles the ambient cost in Cursor sessions to
+**~1,730 tokens**. Codex only reads its own folder, so a Codex-only
+install always pays the single-tier cost. If you only use one tool,
+install for only that one and halve the ambient bill:
+
+```bash
+./install.sh --cursor   # Cursor only       (~865 tokens ambient)
+./install.sh --codex    # Codex only        (~865 tokens ambient)
+./install.sh            # both (default)    (~1,730 tokens in Cursor)
+```
+
+**Bottom line.** At default settings, the system is not pricey:
+under 2% of a typical session's budget even in dual-install mode.
+The full skill bodies (which would sum to a much larger number if all
+read at once) load only when the agent decides the trigger fires —
+which in practice is one or two per turn, not all twelve.
+
 ## How to read the system
 
 Start with [`docs/manifesto.md`](docs/manifesto.md) — one page on the
