@@ -17,7 +17,7 @@ Claude, GPT, Gemini, future ones — sees the same disciplines.
 
 ## What's inside
 
-A spine + ten phase-specific disciplines:
+A spine + eleven specialised disciplines:
 
 - **`agent-operating-manual`** — the spine. Five-phase workflow
   (frame → investigate → construct → verify → communicate), the
@@ -36,6 +36,9 @@ A spine + ten phase-specific disciplines:
   response, severity-ordered, file/line grounded. Summary follows.
 - **`continuation-sanity-check`** — after compaction or resume, verify
   you're answering the **newest** message, not a ghost goal.
+- **`failure-surfacing`** — stop silent retry loops. When the same
+  operation fails repeatedly, surface the failure with context and
+  options instead of retrying invisibly.
 - **`answer-shape-discipline`** — final-answer brevity. 70-line cap.
   Prose for small tasks. No filler metaphors. No anti-comparison
   rhetoric.
@@ -124,7 +127,7 @@ Honest accounting before you install.
 | --- | --- | --- |
 | `agent-operating-manual` | 71 words | 172 lines |
 | `answer-shape-discipline` | 38 words | 115 lines |
-| `construction-discipline` | 42 words | 110 lines |
+| `construction-discipline` | 42 words | 107 lines |
 | `continuation-sanity-check` | 53 words | 63 lines |
 | `dirty-worktree-etiquette` | 72 words | 129 lines |
 | `failure-surfacing` | 44 words | 97 lines |
@@ -139,8 +142,9 @@ Honest accounting before you install.
 For context: a typical Claude / GPT coding session runs **50K–200K
 tokens**. The full skill index is **~0.4%–1.7% of session budget**.
 The 12-rule template recommends keeping any single `CLAUDE.md`-style
-file under 200 lines — every skill body here is at or under that
-ceiling.
+file under 200 lines — skill bodies here hold to that ceiling
+(`make check` warns when one crosses it; the table above is verified
+against the actual files by the same check).
 
 **Cursor's dual-folder behaviour.** Cursor scans **both**
 `~/.cursor/skills-cursor/` AND `~/.codex/skills/` when both exist, so
