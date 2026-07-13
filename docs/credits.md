@@ -139,7 +139,7 @@ written by other engineers:
   model only for judgment calls* (rule 5), *token budgets are not
   advisory* (rule 6), and *tests verify intent, not just behavior*
   (rule 9). Rule 7 ("surface conflicts, don't average them") was
-  added as a cross-cutting ethos bullet in the operating manual.
+  adopted as invariant 7 in the operating manual.
 
   Two framings from Mnilax's article are also adopted as load-bearing
   context inside the skill: the **"behavioral contract, not wishlist"**

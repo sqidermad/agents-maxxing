@@ -114,8 +114,20 @@ for dir in skills/*/; do
   fi
 done
 
-# Relative markdown links must resolve.
-for f in README.md docs/*.md; do
+# ...and must not keep rows for skills that no longer exist (a rename
+# or deletion would otherwise leave a stale row that passes silently).
+while IFS= read -r tname; do
+  [[ -z "$tname" ]] && continue
+  if [[ ! -d "skills/$tname" ]]; then
+    err "README token table has a row for '$tname' but skills/$tname does not exist"
+  fi
+done < <(grep -oE '^\| `[a-z0-9-]+` \| [0-9]+ words \| [0-9]+ lines \|' README.md \
+         | sed -E 's/^\| `([a-z0-9-]+)`.*/\1/')
+
+# Relative markdown links must resolve — in the README, docs, and the
+# skill bodies themselves (a skill may link to its references/ files).
+for f in README.md docs/*.md skills/*/SKILL.md skills/*/references/*.md; do
+  [[ -e "$f" ]] || continue
   base="$(dirname "$f")"
   links="$(grep -oE '\[[^]]*\]\([^)]+\)' "$f" | sed -E 's/.*\(([^)]+)\)$/\1/' || true)"
   while IFS= read -r link; do

@@ -62,7 +62,7 @@ so the system stays lean.
 | 7 | Surface conflicts, don't average them | `agent-operating-manual` invariant 7 |
 | 8 | Read before you write | `scope-discipline`, `agent-operating-manual` invariant 3 |
 | 9 | Tests verify intent, not just behavior | **This skill, below** |
-| 10 | Checkpoint after every significant step | `agent-operating-manual` invariant 9, `continuation-sanity-check` |
+| 10 | Checkpoint after every significant step | `continuation-sanity-check` (checkpoints are what a resume verifies against) |
 | 11 | Match the codebase's conventions | `scope-discipline` |
 | 12 | Fail loud | `failure-surfacing`, `agent-operating-manual` invariants 9–10 |
 

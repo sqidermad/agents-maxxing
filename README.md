@@ -137,7 +137,7 @@ Honest accounting before you install.
 
 | Skill | Description | Body (loaded on-demand) |
 | --- | --- | --- |
-| `agent-operating-manual` | 64 words | 116 lines |
+| `agent-operating-manual` | 62 words | 115 lines |
 | `answer-shape-discipline` | 31 words | 130 lines |
 | `commit-and-release-conventions` | 43 words | 77 lines |
 | `construction-discipline` | 42 words | 107 lines |
@@ -152,7 +152,7 @@ Honest accounting before you install.
 | `sensitive-data-discipline` | 51 words | 74 lines |
 | `twelve-rule-discipline` | 70 words | 174 lines |
 | `upstream-integration-triage` | 58 words | 185 lines |
-| **Total ambient** | **~804 words ≈ ~1,045 tokens** | (full bodies sum to ~30K tokens, loaded selectively) |
+| **Total ambient** | **~802 words ≈ ~1,040 tokens** | (full bodies sum to ~30K tokens, loaded selectively) |
 
 For context: a typical Claude / GPT coding session runs **50K–200K
 tokens**. The full skill index is **~0.5%–2.1% of session budget**.
@@ -165,15 +165,15 @@ against the actual files by the same check).
 `~/.cursor/skills-cursor/` AND `~/.codex/skills/` when both exist, so
 a machine installed with the default `./install.sh` (which symlinks
 into both of those) effectively doubles the ambient cost in Cursor
-sessions to **~2,090 tokens**. Codex and Claude Code each read only
+sessions to **~2,080 tokens**. Codex and Claude Code each read only
 their own folder, so they always pay the single-tier cost. If you
 only use one tool, install for only that one:
 
 ```bash
-./install.sh --cursor   # Cursor only       (~1,045 tokens ambient)
-./install.sh --codex    # Codex only        (~1,045 tokens ambient)
-./install.sh --claude   # Claude Code only  (~1,045 tokens ambient)
-./install.sh            # all tools found   (~2,090 tokens in Cursor)
+./install.sh --cursor   # Cursor only       (~1,040 tokens ambient)
+./install.sh --codex    # Codex only        (~1,040 tokens ambient)
+./install.sh --claude   # Claude Code only  (~1,040 tokens ambient)
+./install.sh            # all tools found   (~2,080 tokens in Cursor)
 ```
 
 **Bottom line.** At default settings, the system is not pricey:

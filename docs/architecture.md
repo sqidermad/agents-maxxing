@@ -6,8 +6,8 @@ How `agents-maxxing` is wired and why.
 
 ```text
         ┌─────────────────────────────────────────────┐
-        │  agent-operating-manual (the spine)        │
-        │  five-phase workflow + ethos + trigger map  │
+        │  agent-operating-manual (the spine)         │
+        │  invariants + five-phase map + trigger map  │
         └───────────────────┬─────────────────────────┘
                             │
        ┌────────────────────┼────────────────────────┐
@@ -145,9 +145,12 @@ skill at the right moment.
 
 - `~/.cursor/skills-cursor/<skill-name>` → `<repo>/skills/<skill-name>`
 - `~/.codex/skills/<skill-name>` → `<repo>/skills/<skill-name>`
+- `~/.claude/skills/<skill-name>` → `<repo>/skills/<skill-name>`
 
-Both Cursor and Codex follow symlinks. Both register the skills as
-available based on each skill's YAML frontmatter `description`.
+All three tools follow symlinks and register the skills based on each
+skill's YAML frontmatter `description`. Claude Code doesn't pre-create
+`~/.claude/skills`, so the installer creates it when `~/.claude`
+exists.
 
 Existing real directories at the target are renamed to
 `<name>.backup-<timestamp>` before linking, never deleted. Existing
@@ -186,6 +189,6 @@ change takes effect immediately.
 - **New skill**: add `skills/<your-skill>/SKILL.md`. Re-run
   `./install.sh`. Done.
 - **New agent target** (e.g., a future tool that has its own skills
-  folder): add a third `link_into` call in `install.sh`.
+  folder): add another `link_into` call in `install.sh`.
 - **New docs**: drop in `docs/`. The README's "How to read the system"
   section lists the canonical entry points.

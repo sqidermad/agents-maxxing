@@ -78,8 +78,9 @@ run() {
 link_into() {
   local target_root="$1"
   local label="$2"
+  local missing_ok="${3:-}"   # "pending": root will be created (dry-run)
 
-  if [[ ! -d "$target_root" ]]; then
+  if [[ ! -d "$target_root" && "$missing_ok" != "pending" ]]; then
     echo "skip $label: $target_root does not exist (is the tool installed?)"
     return 0
   fi
@@ -137,15 +138,15 @@ if $INSTALL_CLAUDE; then
   # Claude Code stores personal skills in ~/.claude/skills but doesn't
   # create the folder by itself. Create it if Claude Code is installed
   # (~/.claude exists); skip entirely if it isn't.
+  CLAUDE_PENDING=""
   if [[ -d "$HOME/.claude" && ! -d "$CLAUDE_SKILLS" ]]; then
     echo "→ creating $CLAUDE_SKILLS (Claude Code doesn't pre-create it)"
     run mkdir -p "$CLAUDE_SKILLS"
+    # In dry-run the mkdir didn't happen; tell link_into the root is
+    # pending so it still lists every link the real run would create.
+    $DRY_RUN && CLAUDE_PENDING="pending"
   fi
-  if $DRY_RUN && [[ -d "$HOME/.claude" && ! -d "$CLAUDE_SKILLS" ]]; then
-    echo "→ would install into Claude Code ($CLAUDE_SKILLS) after creating it"
-  else
-    link_into "$CLAUDE_SKILLS" "Claude Code"
-  fi
+  link_into "$CLAUDE_SKILLS" "Claude Code" "$CLAUDE_PENDING"
 fi
 
 if $DRY_RUN; then
