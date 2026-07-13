@@ -127,7 +127,7 @@ Honest accounting before you install.
 
 | Skill | Description | Body (loaded on-demand) |
 | --- | --- | --- |
-| `agent-operating-manual` | 64 words | 113 lines |
+| `agent-operating-manual` | 62 words | 112 lines |
 | `answer-shape-discipline` | 31 words | 115 lines |
 | `construction-discipline` | 42 words | 107 lines |
 | `continuation-sanity-check` | 48 words | 62 lines |
@@ -139,7 +139,7 @@ Honest accounting before you install.
 | `scope-discipline` | 35 words | 79 lines |
 | `twelve-rule-discipline` | 70 words | 174 lines |
 | `upstream-integration-triage` | 58 words | 185 lines |
-| **Total ambient** | **~627 words ≈ ~815 tokens** | (full bodies sum to ~25K tokens, loaded selectively) |
+| **Total ambient** | **~625 words ≈ ~815 tokens** | (full bodies sum to ~25K tokens, loaded selectively) |
 
 For context: a typical Claude / GPT coding session runs **50K–200K
 tokens**. The full skill index is **~0.4%–1.7% of session budget**.

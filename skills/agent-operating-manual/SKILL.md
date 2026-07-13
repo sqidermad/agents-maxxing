@@ -2,12 +2,11 @@
 name: agent-operating-manual
 description: >-
   Master operating manual for systematic agent work. Read once per
-  session at the start of the first non-trivial task (anything beyond
-  a one-line answer or a single trivial command). Holds the invariants
-  that apply to all work — intent control, scope, verification,
-  honesty — and the trigger map for every specialised skill. Use when
-  starting any code task, review, audit, refactor, or multi-step
-  request.
+  session, at the start of the first non-trivial task (anything beyond
+  a one-line answer or a single trivial command); after that, rely on
+  its trigger map instead of re-reading. Holds the invariants that
+  apply to all work — intent control, scope, verification, honesty —
+  and the trigger map for every specialised skill.
 ---
 
 # Agent Operating Manual
