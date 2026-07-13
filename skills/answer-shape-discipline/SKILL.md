@@ -97,6 +97,21 @@ it. If yes, keep it.
 - Errors / honest limitations: state them directly. "I couldn't run
   the build because <reason>" is better than burying it.
 
+## Plain language
+
+Dense wording hides the point. The reader wants to understand fast,
+not decode.
+
+- Everyday words: "the server", "the log", "it failed" — not "the
+  host", "the sink", "it surfaced a failure".
+- A necessary technical term (cache, migration, checksum) gets one
+  short plain-words explanation the first time it appears.
+- Short sentences. One idea per sentence.
+- No invented shorthand the reader has to remember ("the gate",
+  "phase 2 of the plan") — say the thing each time.
+- Cut dressed-up filler: "the one-line version", "state of play",
+  "buys you", "boring deploys".
+
 ## Verification line
 
 End substantive answers with a one-line verification status when

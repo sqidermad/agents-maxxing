@@ -95,6 +95,9 @@ These hold in every phase, on every task:
 | Auth/RBAC/user-state/mission-limit/job-queue changes | `resilience-bulkhead-discipline` |
 | 3rd-party **HTTP/REST** API / vendor / OAuth provider failing, "works in browser but not from us" (DB/queue/SDK/non-HTTP cases are out of scope — see the skill) | `upstream-integration-triage` |
 | Project onboarding, user says "rule N" / "twelve-rule template", or writing/reviewing a rules file | `twelve-rule-discipline` |
+| About to commit, tag, release, or write a PR / link it to an issue | `commit-and-release-conventions` |
+| Deploy, restart, migration, bulk delete, or any mutation on a live host | `production-operations-discipline` |
+| Work touches secrets, env files, certs, tokens, or personal identifiers | `sensitive-data-discipline` |
 
 Skills shipped by the environment itself (PR helpers, artifact
 builders, meta-skills) fire on their own triggers alongside these.
