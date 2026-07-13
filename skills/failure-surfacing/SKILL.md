@@ -92,6 +92,6 @@ watching a frozen output for two more minutes.
 
 - `dirty-worktree-etiquette` — surface conflicts before resolving
   unilaterally.
-- `agent-operating-manual` Phase 4 — "If you couldn't run a
-  verification step, say so honestly." This skill is the operational
-  half of that rule.
+- `agent-operating-manual` invariant "Honesty over confidence" —
+  couldn't run a check? say so. This skill is the operational half of
+  that rule.

@@ -4,9 +4,8 @@ description: >-
   Verify your final answer addresses the newest user request, not an
   older ghost goal. Use after any context compaction, conversation
   resume, long tool-running gap, or when the user has sent multiple
-  messages in quick succession that could conflict. Adopted from Codex's
-  continuation rule. Guards against drift after the system summarises
-  context for you.
+  messages in quick succession that could conflict. Guards against
+  drift after the system summarises context for you.
 ---
 
 # Continuation Sanity Check

@@ -6,8 +6,8 @@ How `agents-maxxing` is wired and why.
 
 ```text
         ┌─────────────────────────────────────────────┐
-        │  agent-operating-manual (the spine)        │
-        │  five-phase workflow + ethos + trigger map  │
+        │  agent-operating-manual (the spine)         │
+        │  invariants + five-phase map + trigger map  │
         └───────────────────┬─────────────────────────┘
                             │
        ┌────────────────────┼────────────────────────┐

@@ -6,7 +6,6 @@ description: >-
   summary follows, severity-ordered, file/line grounded. Use whenever the
   user uses words like "review", "audit", "look over", "check", "any
   issues with", "what's wrong with", or asks for a critical assessment.
-  Adopted from Codex's review rule.
 ---
 
 # Review Stance

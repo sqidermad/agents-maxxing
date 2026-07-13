@@ -5,9 +5,9 @@ description: >-
   Use whenever you encounter modified, untracked, or staged files you didn't
   create yourself, before any git destructive operation (reset, checkout,
   clean, restore), and before committing in a workspace where unrelated
-  files are dirty. Adopted from Codex's worktree rules — codifies the
-  difference between "your work in progress" and "the user's work in
-  progress that happens to be in the same tree."
+  files are dirty. Codifies the difference between "your work in
+  progress" and "the user's work in progress that happens to be in
+  the same tree."
 ---
 
 # Dirty Worktree Etiquette
@@ -89,7 +89,7 @@ Force-push is allowed only when:
 If pushing to a shared branch with force, **warn the user explicitly**
 before doing it, even if they appeared to ask. Confirm.
 
-## Amend rules (compatible with Cursor's existing constraints)
+## Amend rules
 
 Amend only when **all** of:
 
