@@ -10,15 +10,16 @@ quality results: meeting requirements, considering edges, staying
 concise, matching industry practice, while being effective and
 efficient.
 
-The system installs into both **Cursor** (`~/.cursor/skills-cursor/`)
-and **Codex** (`~/.codex/skills/`) so any model behind either tool —
+The system installs into **Cursor** (`~/.cursor/skills-cursor/`),
+**Codex** (`~/.codex/skills/`), and **Claude Code**
+(`~/.claude/skills/`) so any model behind any of these tools —
 Claude, GPT, Gemini, future ones — sees the same disciplines.
 
 ## What's inside
 
 A spine + ten phase-specific disciplines:
 
-- **`_agent-operating-manual`** — the spine. Five-phase workflow
+- **`agent-operating-manual`** — the spine. Five-phase workflow
   (frame → investigate → construct → verify → communicate), the
   cross-cutting ethos, and the trigger map for every other skill.
 - **`construction-discipline`** — pre-commit gate (5 checks: loop
@@ -72,16 +73,24 @@ cd ~/Developer/agents-maxxing
 ./install.sh
 ```
 
-The installer **symlinks** each skill into both Cursor and Codex
-skill folders. Editing a skill from anywhere — the repo, the Cursor
-folder, the Codex folder — updates the same file. One source of truth.
+The installer **symlinks** each skill into the Cursor, Codex, and
+Claude Code skill folders (skipping tools not installed on the
+machine). Editing a skill from anywhere — the repo or any tool's
+folder — updates the same file. One source of truth.
 
-To install for only one tool:
+To install for specific tools only:
 
 ```bash
 ./install.sh --cursor   # only Cursor
 ./install.sh --codex    # only Codex
+./install.sh --claude   # only Claude Code
 ```
+
+If a tool already has a real (non-symlink) skill folder with the same
+name, the installer moves it aside to `<name>.backup-<timestamp>`
+before linking. Backups are never deleted; uninstalling does **not**
+restore them — move one back by hand if you want it
+(`mv <name>.backup-<timestamp> <name>`).
 
 To verify install:
 
@@ -89,7 +98,7 @@ To verify install:
 make doctor
 ```
 
-To uninstall (removes symlinks; doesn't delete repo):
+To uninstall (removes symlinks; doesn't delete repo or backups):
 
 ```bash
 ./uninstall.sh
@@ -113,7 +122,7 @@ Honest accounting before you install.
 
 | Skill | Description | Body (loaded on-demand) |
 | --- | --- | --- |
-| `_agent-operating-manual` | 71 words | 172 lines |
+| `agent-operating-manual` | 71 words | 172 lines |
 | `answer-shape-discipline` | 38 words | 115 lines |
 | `construction-discipline` | 42 words | 110 lines |
 | `continuation-sanity-check` | 53 words | 63 lines |
@@ -136,15 +145,16 @@ ceiling.
 **Cursor's dual-folder behaviour.** Cursor scans **both**
 `~/.cursor/skills-cursor/` AND `~/.codex/skills/` when both exist, so
 a machine installed with the default `./install.sh` (which symlinks
-into both) effectively doubles the ambient cost in Cursor sessions to
-**~1,730 tokens**. Codex only reads its own folder, so a Codex-only
-install always pays the single-tier cost. If you only use one tool,
-install for only that one and halve the ambient bill:
+into both of those) effectively doubles the ambient cost in Cursor
+sessions to **~1,730 tokens**. Codex and Claude Code each read only
+their own folder, so they always pay the single-tier cost. If you
+only use one tool, install for only that one:
 
 ```bash
 ./install.sh --cursor   # Cursor only       (~865 tokens ambient)
 ./install.sh --codex    # Codex only        (~865 tokens ambient)
-./install.sh            # both (default)    (~1,730 tokens in Cursor)
+./install.sh --claude   # Claude Code only  (~865 tokens ambient)
+./install.sh            # all tools found   (~1,730 tokens in Cursor)
 ```
 
 **Bottom line.** At default settings, the system is not pricey:
