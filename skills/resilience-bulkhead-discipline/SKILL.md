@@ -5,8 +5,8 @@ description: >-
   and heavy data-plane behavior, enforce auth-state consistently across API
   surfaces, preserve error contracts, and add anti-lockout admin guards. Use
   when adding auth/roles, mission limits, long-running search/jobs, queueing,
-  or failure handling under load. Derived from cross-model benchmark findings
-  (Opus 4.7, Sonnet 4.6, Cursor Premium Agents, Codex 5.5/5.3).
+  or failure handling under load. Derived from cross-model benchmark
+  findings (provenance in docs/credits.md).
 ---
 
 # Resilience Bulkhead Discipline

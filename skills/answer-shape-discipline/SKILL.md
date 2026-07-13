@@ -2,9 +2,9 @@
 name: answer-shape-discipline
 description: >-
   Apply formatting and length discipline to final answers. Use as a
-  final pass before sending any non-trivial response. Adopted and
-  extended from Codex's formatting rules. Caps length, prefers prose
-  for small tasks, bans nested bullets and rhetorical filler.
+  final pass before sending any non-trivial response. Caps length,
+  prefers prose for small tasks, bans nested bullets and rhetorical
+  filler.
 ---
 
 # Answer Shape Discipline
@@ -59,10 +59,10 @@ filler patterns.
 
 ## Process narration
 
-The user generally values seeing how the agent thinks. The Cursor /
-Codex UI already renders tool-call status inline as the work happens,
-so the **final answer** should not duplicate progress logs from the
-tool stream.
+The user generally values seeing how the agent thinks. Most agent UIs
+already render tool-call status inline as the work happens, so the
+**final answer** should not duplicate progress logs from the tool
+stream.
 
 **Keep** in the final answer:
 

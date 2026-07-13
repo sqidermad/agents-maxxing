@@ -19,9 +19,10 @@ Claude, GPT, Gemini, future ones — sees the same disciplines.
 
 A spine + eleven specialised disciplines:
 
-- **`agent-operating-manual`** — the spine. Five-phase workflow
-  (frame → investigate → construct → verify → communicate), the
-  cross-cutting ethos, and the trigger map for every other skill.
+- **`agent-operating-manual`** — the spine. Eleven invariants that
+  govern all work (intent control, scope, verification, honesty), the
+  five-phase map (frame → investigate → construct → verify →
+  communicate), and the trigger map for every other skill.
 - **`construction-discipline`** — pre-commit gate (5 checks: loop
   trace, deletion audit, symmetry audit, intent modeling, regression
   check). Catches the bugs you don't know you've shipped.
@@ -53,15 +54,16 @@ A spine + eleven specialised disciplines:
   or theirs" rollback decision rules. Scope is HTTP — DB / queue /
   SDK-mediated / non-HTTP integrations need different tooling (the
   skill lists them explicitly so an agent does not misapply it).
-- **`twelve-rule-discipline`** — project-wide rule template (12 rules,
-  caution over speed). Owns the three concepts not covered elsewhere:
+- **`twelve-rule-discipline`** — rules-file template (12 rules,
+  caution over speed) for project onboarding and rules-file reviews —
+  not a runtime gate. Owns the three concepts not covered elsewhere:
   *model-vs-code split* (don't ask the LLM what a switch statement can
-  answer), *hard token budgets* (per-task / per-session, surface
-  breaches), and *intent-encoded tests* (tests fail for a named
-  business reason, not just "got null"). Cross-references existing
-  skills for the other nine rules so nothing is duplicated. Also
-  carries the **"behavioral contract, not wishlist"** framing and the
-  empirical **200-line CLAUDE.md ceiling** from the source research.
+  answer), *token budgets* (set per project, breaches surfaced), and
+  *intent-encoded tests* (tests fail for a named business reason, not
+  just "got null"). Cross-references existing skills for the other
+  nine rules so nothing is duplicated. Also carries the **"behavioral
+  contract, not wishlist"** framing and the author-reported **200-line
+  rules-file ceiling** from the source research.
   Lineage: Karpathy (Jan 2026 complaint thread) →
   [Forrest Chang](https://github.com/forrestchang/andrej-karpathy-skills)
   (4-rule template) →
@@ -125,19 +127,19 @@ Honest accounting before you install.
 
 | Skill | Description | Body (loaded on-demand) |
 | --- | --- | --- |
-| `agent-operating-manual` | 71 words | 172 lines |
-| `answer-shape-discipline` | 38 words | 115 lines |
+| `agent-operating-manual` | 64 words | 113 lines |
+| `answer-shape-discipline` | 31 words | 115 lines |
 | `construction-discipline` | 42 words | 107 lines |
-| `continuation-sanity-check` | 53 words | 63 lines |
-| `dirty-worktree-etiquette` | 72 words | 129 lines |
+| `continuation-sanity-check` | 48 words | 62 lines |
+| `dirty-worktree-etiquette` | 66 words | 129 lines |
 | `failure-surfacing` | 44 words | 97 lines |
-| `frontend-design-discipline` | 73 words | 164 lines |
-| `resilience-bulkhead-discipline` | 54 words | 128 lines |
-| `review-stance` | 59 words | 63 lines |
-| `scope-discipline` | 42 words | 78 lines |
-| `twelve-rule-discipline` | 59 words | 169 lines |
-| `upstream-integration-triage` | 58 words | 209 lines |
-| **Total ambient** | **~665 words ≈ ~865 tokens** | (full bodies sum to ~28K tokens, loaded selectively) |
+| `frontend-design-discipline` | 67 words | 164 lines |
+| `resilience-bulkhead-discipline` | 48 words | 128 lines |
+| `review-stance` | 54 words | 62 lines |
+| `scope-discipline` | 35 words | 79 lines |
+| `twelve-rule-discipline` | 70 words | 174 lines |
+| `upstream-integration-triage` | 58 words | 185 lines |
+| **Total ambient** | **~627 words ≈ ~815 tokens** | (full bodies sum to ~25K tokens, loaded selectively) |
 
 For context: a typical Claude / GPT coding session runs **50K–200K
 tokens**. The full skill index is **~0.4%–1.7% of session budget**.
@@ -150,15 +152,15 @@ against the actual files by the same check).
 `~/.cursor/skills-cursor/` AND `~/.codex/skills/` when both exist, so
 a machine installed with the default `./install.sh` (which symlinks
 into both of those) effectively doubles the ambient cost in Cursor
-sessions to **~1,730 tokens**. Codex and Claude Code each read only
+sessions to **~1,630 tokens**. Codex and Claude Code each read only
 their own folder, so they always pay the single-tier cost. If you
 only use one tool, install for only that one:
 
 ```bash
-./install.sh --cursor   # Cursor only       (~865 tokens ambient)
-./install.sh --codex    # Codex only        (~865 tokens ambient)
-./install.sh --claude   # Claude Code only  (~865 tokens ambient)
-./install.sh            # all tools found   (~1,730 tokens in Cursor)
+./install.sh --cursor   # Cursor only       (~815 tokens ambient)
+./install.sh --codex    # Codex only        (~815 tokens ambient)
+./install.sh --claude   # Claude Code only  (~815 tokens ambient)
+./install.sh            # all tools found   (~1,630 tokens in Cursor)
 ```
 
 **Bottom line.** At default settings, the system is not pricey:

@@ -2,30 +2,34 @@
 name: twelve-rule-discipline
 description: >-
   Twelve-rule template for production agent work — caution over speed,
-  explicit budgets, intent-encoded tests. Use as a project-wide default
-  before any non-trivial change, or when the user says "rule N" /
-  "Mnilax rules" / "twelve-rule template". Owns three concepts not
-  covered elsewhere (model-vs-code split, hard token budgets, test
-  intent) and cross-references existing discipline skills for the
-  other nine rules.
+  explicit budgets, intent-encoded tests. Use when onboarding a new
+  project, when writing or reviewing a rules file (CLAUDE.md /
+  AGENTS.md / .cursorrules), or when the user says "rule N" / "Mnilax
+  rules" / "twelve-rule template". Not a runtime gate for ordinary
+  changes — the operating manual covers those. Owns three concepts not
+  covered elsewhere (model-vs-code split, token budgets, test intent).
 ---
 
 # Twelve-Rule Discipline
 
-A project-wide rule template applied to every task in this workspace
-unless explicitly overridden. Bias: **caution over speed** on non-
-trivial work. Use judgment on trivial tasks.
+A **template** for a project's rules file — apply it when setting up
+or reviewing one, not as a second runtime manual (the
+`agent-operating-manual` already governs ordinary work). Bias:
+**caution over speed** on non-trivial work. Use judgment on trivial
+tasks.
 
-CLAUDE.md is a **behavioral contract, not a wishlist.** Every rule
-must answer one question: *what mistake does this prevent?* If a rule
-in your project's CLAUDE.md can't name a specific failure mode from
-your actual work, drop it. Compliance scales with relevance.
+A rules file (CLAUDE.md / AGENTS.md / .cursorrules) is a **behavioral
+contract, not a wishlist.** Every rule must answer one question: *what
+mistake does this prevent?* If a rule in your project's rules file
+can't name a specific failure mode from your actual work, drop it.
+Compliance scales with relevance.
 
-**The 200-line ceiling.** Past ~200 lines, Claude (and most current
-agents) start pattern-matching to "rules exist" without actually
-reading them. Compliance has been measured to drop from ~76% at 12
-rules to ~52% at 18 rules. Keep your CLAUDE.md tight. This skill is
-also kept short for the same reason.
+**The 200-line ceiling.** Past ~200 lines, current agents start
+pattern-matching to "rules exist" without actually reading them. The
+source author reports compliance dropping from ~76% at 12 rules to
+~52% at 18 rules (their measurement, not independently verified).
+Keep your rules file tight. This skill is also kept short for the
+same reason.
 
 ## Attribution
 
@@ -49,18 +53,18 @@ so the system stays lean.
 
 | # | Rule | Home |
 | --- | --- | --- |
-| 1 | Think before coding | `agent-operating-manual` Phase 1, `continuation-sanity-check` |
+| 1 | Think before coding | `agent-operating-manual` invariants 1–3, `continuation-sanity-check` |
 | 2 | Simplicity first | `scope-discipline` |
 | 3 | Surgical changes | `scope-discipline` |
-| 4 | Goal-driven execution | `agent-operating-manual` Phase 4 |
+| 4 | Goal-driven execution | `agent-operating-manual` invariants 8 + 11 |
 | 5 | Use the model only for judgment calls | **This skill, below** |
 | 6 | Token budgets are not advisory | **This skill, below** |
-| 7 | Surface conflicts, don't average them | `agent-operating-manual` Cross-cutting ethos |
-| 8 | Read before you write | `scope-discipline`, `agent-operating-manual` Phase 2 |
+| 7 | Surface conflicts, don't average them | `agent-operating-manual` invariant 7 |
+| 8 | Read before you write | `scope-discipline`, `agent-operating-manual` invariant 3 |
 | 9 | Tests verify intent, not just behavior | **This skill, below** |
-| 10 | Checkpoint after every significant step | `agent-operating-manual` Phase 5, `continuation-sanity-check` |
+| 10 | Checkpoint after every significant step | `agent-operating-manual` invariant 9, `continuation-sanity-check` |
 | 11 | Match the codebase's conventions | `scope-discipline` |
-| 12 | Fail loud | `failure-surfacing`, ethos "Honesty over confidence" |
+| 12 | Fail loud | `failure-surfacing`, `agent-operating-manual` invariants 9–10 |
 
 For rules 1–4, 7, 8, 10–12: invoke the home skill — they already
 encode the operational behaviour. Rules 5, 6, and 9 below are not
@@ -90,17 +94,18 @@ ambiguous middle, not the deterministic edges.
 
 ## Rule 6 — Token budgets are not advisory
 
-Set explicit budgets before starting work. Default budgets (override
-per project):
+The invariant: **a budget exists, and breaches are surfaced** — never
+silently overrun. The numbers themselves are per-project; set them to
+match the real work. (The source template suggests 4,000 tokens per
+task / 30,000 per session — realistic for small scripted tasks, far
+too small for deploys, incident response, or multi-repo work. A
+budget nobody can work inside just trains everyone to ignore it.)
 
-- **Per task: 4,000 tokens** of agent work (read, write, reason).
-- **Per session: 30,000 tokens** before forced compaction.
-
-If approaching budget:
+If the work is ballooning past what the task should plausibly cost:
 
 - Summarise current state explicitly, then start a fresh task.
-- **Surface the breach to the user** — name the rule, name why, offer
-  to scope down or split.
+- **Surface the overrun to the user** — name why, offer to scope
+  down or split.
 - Do not silently overrun. Token-overrun without acknowledgement is
   the same failure mode `failure-surfacing` covers for tool errors.
 
@@ -149,14 +154,14 @@ is testing the wrong thing.
 
 - **Don't paste all 12 without thought.** Read them, keep the ones
   that map to mistakes you have actually made, drop the rest. A
-  6-rule CLAUDE.md tuned to your real failure modes beats a 12-rule
+  6-rule rules file tuned to your real failure modes beats a 12-rule
   one with 6 rules you'll never need.
 - **Stay under 200 lines total** including any project-specific rules
   appended below the 12.
 - **Avoid noise rules.** "Be careful" / "think hard" / "really focus"
   drop compliance to ~30% because they're not testable. Replace with
   concrete imperatives ("state assumptions explicitly").
-- **Avoid examples** in CLAUDE.md. Three examples cost as much
+- **Avoid examples** in the rules file. Three examples cost as much
   context as ten rules and the model over-fits to them. Rules are
   abstract; examples are specific.
 - **Avoid tool-coupled rules.** "Always use eslint" silently fails on

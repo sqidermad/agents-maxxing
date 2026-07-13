@@ -3,8 +3,8 @@ name: scope-discipline
 description: >-
   Keep edits scoped to what the user asked, read existing patterns
   before introducing new ones, and let test coverage scale with risk.
-  Use before any code edits. Adopted from Codex's engineering judgment
-  block — the "don't drift, don't over-abstract, don't churn" rule.
+  Use before any code edits. The "don't drift, don't over-abstract,
+  don't churn" rule.
 ---
 
 # Scope Discipline
@@ -14,9 +14,10 @@ implied by the request and the surrounding code.
 
 ## Before editing
 
-1. **Read the existing code.** Use Grep / SemanticSearch / Read to
-   find relevant files, helpers, conventions. Don't write before you've
-   read.
+1. **Read the existing code.** Use the environment's search and read
+   tools (exact search always, semantic search where available) to
+   find relevant files, helpers, conventions. Don't write before
+   you've read.
 2. **Match repo patterns.** If the project uses framework X for a
    concern, use framework X. Don't introduce framework Y because you
    prefer it.

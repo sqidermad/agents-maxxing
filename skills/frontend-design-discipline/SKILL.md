@@ -4,10 +4,10 @@ description: >-
   Apply opinionated frontend craftsmanship rules when designing or modifying
   any UI. Use when building or editing a web app / website / dashboard / game,
   choosing UI controls, styling components, composing pages, defining layout,
-  picking icons, or designing landing pages and hero sections. Adopted from
-  Codex's frontend guidance — codifies the small, easily-skipped decisions
-  that separate amateur UI from professional UI. Read this before generating
-  any non-trivial UI markup or proposing visual changes.
+  picking icons, or designing landing pages and hero sections. Codifies
+  the small, easily-skipped decisions that separate amateur UI from
+  professional UI. Read this before generating any non-trivial UI
+  markup or proposing visual changes.
 ---
 
 # Frontend Design Discipline
