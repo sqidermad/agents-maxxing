@@ -66,7 +66,7 @@ codebases:
   individually but the layers weren't traced end-to-end. The five
   checks are exactly the questions that, if asked before commit,
   would have caught all four bugs.
-- `_agent-operating-manual` — the spine, the five-phase model, and
+- `agent-operating-manual` — the spine, the five-phase model, and
   the trigger map are original. They synthesise the disciplines into
   a workflow and resolve which skill applies when.
 
@@ -132,7 +132,7 @@ written by other engineers:
      dropped from 41% vanilla → 11% with 4 rules → 3% with 12 rules.
 
   Of the twelve rules, nine were already covered by existing skills
-  in this repo (`_agent-operating-manual`, `scope-discipline`,
+  in this repo (`agent-operating-manual`, `scope-discipline`,
   `continuation-sanity-check`, `failure-surfacing`) and are cross-
   referenced rather than duplicated. Three concepts were genuinely
   new to this repo and were adopted into the skill body: *use the

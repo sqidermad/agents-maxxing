@@ -6,7 +6,7 @@ How `agents-maxxing` is wired and why.
 
 ```text
         ┌─────────────────────────────────────────────┐
-        │  _agent-operating-manual (the spine)        │
+        │  agent-operating-manual (the spine)        │
         │  five-phase workflow + ethos + trigger map  │
         └───────────────────┬─────────────────────────┘
                             │
@@ -57,7 +57,7 @@ Before doing anything, answer:
   list? Code only? Plan?)
 
 Skills that fire here: `continuation-sanity-check`,
-`answer-shape-discipline`, parts of `_agent-operating-manual`.
+`answer-shape-discipline`, parts of `agent-operating-manual`.
 
 ### 2. Investigate
 
@@ -69,7 +69,7 @@ Before changing anything, learn:
 - What's the smallest scope that satisfies the request?
 
 Skills that fire here: `scope-discipline`,
-`_agent-operating-manual` (read-the-system rule).
+`agent-operating-manual` (read-the-system rule).
 
 ### 3. Construct
 
@@ -114,7 +114,7 @@ The final answer.
 
 ## The trigger map
 
-Located in [`skills/_agent-operating-manual/SKILL.md`](../skills/_agent-operating-manual/SKILL.md).
+Located in [`skills/agent-operating-manual/SKILL.md`](../skills/agent-operating-manual/SKILL.md).
 Maps observable activity → which skill to read.
 
 Examples:
@@ -138,9 +138,12 @@ skill at the right moment.
 
 - `~/.cursor/skills-cursor/<skill-name>` → `<repo>/skills/<skill-name>`
 - `~/.codex/skills/<skill-name>` → `<repo>/skills/<skill-name>`
+- `~/.claude/skills/<skill-name>` → `<repo>/skills/<skill-name>`
 
-Both Cursor and Codex follow symlinks. Both register the skills as
-available based on each skill's YAML frontmatter `description`.
+All three tools follow symlinks and register the skills based on each
+skill's YAML frontmatter `description`. Claude Code doesn't pre-create
+`~/.claude/skills`, so the installer creates it when `~/.claude`
+exists.
 
 Existing real directories at the target are renamed to
 `<name>.backup-<timestamp>` before linking, never deleted. Existing
@@ -179,6 +182,6 @@ change takes effect immediately.
 - **New skill**: add `skills/<your-skill>/SKILL.md`. Re-run
   `./install.sh`. Done.
 - **New agent target** (e.g., a future tool that has its own skills
-  folder): add a third `link_into` call in `install.sh`.
+  folder): add another `link_into` call in `install.sh`.
 - **New docs**: drop in `docs/`. The README's "How to read the system"
   section lists the canonical entry points.

@@ -119,7 +119,7 @@ PRs welcome. Ground rules:
    internal `@cerflux/utils`" is not.
 6. **Keep skills tight.** A skill that runs to 800 lines is rarely
    read end-to-end. Aim for 100–250 lines. Split if you cross 400.
-7. **Update the trigger map** in `_agent-operating-manual/SKILL.md`
+7. **Update the trigger map** in `agent-operating-manual/SKILL.md`
    if your skill introduces a new trigger.
 8. **Update `docs/credits.md`** if your skill is derived from
    somewhere — base prompts, papers, internal docs (sanitised).
@@ -149,7 +149,7 @@ intact.
   swap a few out?
 - Do I want to add team-specific skills (style guides, deployment
   rules, naming conventions)?
-- Do I want to keep the master `_agent-operating-manual` as-is, or
+- Do I want to keep the master `agent-operating-manual` as-is, or
   rewrite the spine to reflect a different workflow?
 
 A fork that answers these honestly is more valuable than a copy that

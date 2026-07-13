@@ -204,6 +204,6 @@ incident does not last 23 hours of cached bad token (see
   our service tolerate this when it happens next.
 - `dirty-worktree-etiquette` — if you do roll back to prove a prior
   tag reproduces, respect any local changes the user already made.
-- `_agent-operating-manual` Phase 2 (Investigate) — this skill is the
+- `agent-operating-manual` Phase 2 (Investigate) — this skill is the
   vendor-flavoured specialisation of "let the existing system teach
   you how to move."
