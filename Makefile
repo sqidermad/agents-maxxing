@@ -1,12 +1,13 @@
-.PHONY: help install install-cursor install-codex uninstall doctor pull list dry-run
+.PHONY: help install install-cursor install-codex install-claude uninstall doctor pull list dry-run
 
 help:
 	@echo "agents-maxxing — make targets"
 	@echo ""
-	@echo "  make install         install into Cursor + Codex (symlinks)"
+	@echo "  make install         install into Cursor + Codex + Claude Code (symlinks)"
 	@echo "  make install-cursor  install into Cursor only"
 	@echo "  make install-codex   install into Codex only"
-	@echo "  make uninstall       remove symlinks from Cursor + Codex"
+	@echo "  make install-claude  install into Claude Code only"
+	@echo "  make uninstall       remove symlinks from all tools"
 	@echo "  make doctor          verify install state"
 	@echo "  make pull            git pull + re-install"
 	@echo "  make list            list skills in this repo"
@@ -20,6 +21,9 @@ install-cursor:
 
 install-codex:
 	@./install.sh --codex
+
+install-claude:
+	@./install.sh --claude
 
 uninstall:
 	@./uninstall.sh
@@ -39,13 +43,18 @@ doctor:
 	@printf "agents-maxxing doctor\n\n"
 	@printf "Repo:   %s\n" "$$(pwd)"
 	@printf "Cursor: %s\n" "$$HOME/.cursor/skills-cursor"
-	@printf "Codex:  %s\n\n" "$$HOME/.codex/skills"
+	@printf "Codex:  %s\n" "$$HOME/.codex/skills"
+	@printf "Claude: %s\n\n" "$$HOME/.claude/skills"
 	@for skill_dir in skills/*/; do \
 	  name=$$(basename "$$skill_dir"); \
 	  printf "%-40s" "$$name"; \
-	  for tool_root in "$$HOME/.cursor/skills-cursor" "$$HOME/.codex/skills"; do \
+	  for tool_root in "$$HOME/.cursor/skills-cursor" "$$HOME/.codex/skills" "$$HOME/.claude/skills"; do \
 	    target="$$tool_root/$$name"; \
-	    label=$$(basename "$$tool_root"); \
+	    case "$$tool_root" in \
+	      *cursor*) label=cursor ;; \
+	      *codex*)  label=codex ;; \
+	      *)        label=claude ;; \
+	    esac; \
 	    if [ -L "$$target" ]; then \
 	      link=$$(readlink "$$target"); \
 	      expected="$$(pwd)/skills/$$name"; \
