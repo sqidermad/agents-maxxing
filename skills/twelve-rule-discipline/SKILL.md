@@ -49,16 +49,16 @@ so the system stays lean.
 
 | # | Rule | Home |
 | --- | --- | --- |
-| 1 | Think before coding | `_agent-operating-manual` Phase 1, `continuation-sanity-check` |
+| 1 | Think before coding | `agent-operating-manual` Phase 1, `continuation-sanity-check` |
 | 2 | Simplicity first | `scope-discipline` |
 | 3 | Surgical changes | `scope-discipline` |
-| 4 | Goal-driven execution | `_agent-operating-manual` Phase 4 |
+| 4 | Goal-driven execution | `agent-operating-manual` Phase 4 |
 | 5 | Use the model only for judgment calls | **This skill, below** |
 | 6 | Token budgets are not advisory | **This skill, below** |
-| 7 | Surface conflicts, don't average them | `_agent-operating-manual` Cross-cutting ethos |
-| 8 | Read before you write | `scope-discipline`, `_agent-operating-manual` Phase 2 |
+| 7 | Surface conflicts, don't average them | `agent-operating-manual` Cross-cutting ethos |
+| 8 | Read before you write | `scope-discipline`, `agent-operating-manual` Phase 2 |
 | 9 | Tests verify intent, not just behavior | **This skill, below** |
-| 10 | Checkpoint after every significant step | `_agent-operating-manual` Phase 5, `continuation-sanity-check` |
+| 10 | Checkpoint after every significant step | `agent-operating-manual` Phase 5, `continuation-sanity-check` |
 | 11 | Match the codebase's conventions | `scope-discipline` |
 | 12 | Fail loud | `failure-surfacing`, ethos "Honesty over confidence" |
 

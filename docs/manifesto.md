@@ -48,7 +48,7 @@ it.
 5. **Communicate** — findings first if it's a review; brevity over
    nesting; specific code references; no filler.
 
-The spine is in [`_agent-operating-manual/SKILL.md`](../skills/_agent-operating-manual/SKILL.md).
+The spine is in [`agent-operating-manual/SKILL.md`](../skills/agent-operating-manual/SKILL.md).
 The phase-specific skills are siblings.
 
 ## What "industry practice" means here
@@ -81,7 +81,7 @@ That includes the philosophy you're reading right now.
 
 Skills are defaults, not laws. When a skill conflicts with what the
 user explicitly asked for, the user wins. When a skill conflicts with
-another skill, the trigger map in `_agent-operating-manual` resolves
+another skill, the trigger map in `agent-operating-manual` resolves
 the precedence. When you genuinely think a skill is wrong, change the
 skill — don't ignore it for one task and keep the broken default for
 the next.

@@ -6,7 +6,7 @@ How `agents-maxxing` is wired and why.
 
 ```text
         ┌─────────────────────────────────────────────┐
-        │  _agent-operating-manual (the spine)        │
+        │  agent-operating-manual (the spine)        │
         │  five-phase workflow + ethos + trigger map  │
         └───────────────────┬─────────────────────────┘
                             │
@@ -57,7 +57,7 @@ Before doing anything, answer:
   list? Code only? Plan?)
 
 Skills that fire here: `continuation-sanity-check`,
-`answer-shape-discipline`, parts of `_agent-operating-manual`.
+`answer-shape-discipline`, parts of `agent-operating-manual`.
 
 ### 2. Investigate
 
@@ -69,7 +69,7 @@ Before changing anything, learn:
 - What's the smallest scope that satisfies the request?
 
 Skills that fire here: `scope-discipline`,
-`_agent-operating-manual` (read-the-system rule).
+`agent-operating-manual` (read-the-system rule).
 
 ### 3. Construct
 
@@ -114,7 +114,7 @@ The final answer.
 
 ## The trigger map
 
-Located in [`skills/_agent-operating-manual/SKILL.md`](../skills/_agent-operating-manual/SKILL.md).
+Located in [`skills/agent-operating-manual/SKILL.md`](../skills/agent-operating-manual/SKILL.md).
 Maps observable activity → which skill to read.
 
 Examples:
