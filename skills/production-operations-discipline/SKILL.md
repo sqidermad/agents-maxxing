@@ -64,13 +64,26 @@ broken something.
 - Sync with explicit excludes for runtime state (`.venv`, env files,
   logs) and *with* deletion of orphans — stale modules from old
   releases stay importable forever under plain overlay extracts.
+- **The sync itself is a destructive command.** Preview it first
+  (`rsync -n` / the tool's list mode) and *read the deletion list* —
+  every planned delete must be explainable as an orphan of an old
+  release. One runtime path in that list means an exclude is wrong:
+  stop.
 - **Destructive commands get a dry run and a cap.** Before any bulk
   delete/prune: print the exact targets, count them, and sanity-check
   the count against expectation. A cleanup that wants to delete 10×
   more than estimated is a wrong pattern, not a big cleanup.
+- **Env changes are a deploy step of their own.** If the release
+  needs new variables, apply them to the host env explicitly, record
+  what changed, and only then restart. The artifact must not carry
+  env (see `sensitive-data-discipline`).
 - Migrations: dry-run first where supported (and know what the
   dry-run itself writes), apply one migration explicitly by id, not
-  "whatever is pending".
+  "whatever is pending". **Order matters:** additive migrations (new
+  tables/columns) go in *before* the new code that reads them goes
+  live; destructive ones (drops, renames) are a separate later
+  deploy, after the code that stopped using the old schema has proven
+  itself — never bundled into the same step.
 
 ## Verify like you mean it
 
@@ -86,7 +99,10 @@ broken something.
 ## Rollback
 
 - Rollback = restore the matched backup (code + runtime + env
-  together), not `git checkout` archaeology.
+  together), not `git checkout` archaeology. If the deploy changed
+  env variables, rolling back code *without* reversing those changes
+  is a new, untested combination — the record from the apply step is
+  the reversal list.
 - Additive migrations (new tables/columns behind a dark flag) may
   stay through a code rollback; reverse schema only if old code
   can't run against it.

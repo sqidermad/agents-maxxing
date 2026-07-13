@@ -41,7 +41,8 @@ A spine + fourteen specialised disciplines:
   operation fails repeatedly, surface the failure with context and
   options instead of retrying invisibly.
 - **`commit-and-release-conventions`** — commits, tags, releases, PRs.
-  No AI attribution, plain-number tags (`1.2.0`, never `v1.2.0`),
+  No AI attribution, plain-number tags by default (`1.2.0` — but the
+  ecosystem's mandatory scheme wins, and never mix schemes),
   `Closes #N` semantics, pre-release and broken-tag hygiene.
 - **`production-operations-discipline`** — touching live systems:
   stage → validate → backup → apply → verify. Artifact preflights
@@ -139,17 +140,17 @@ Honest accounting before you install.
 | --- | --- | --- |
 | `agent-operating-manual` | 62 words | 115 lines |
 | `answer-shape-discipline` | 31 words | 130 lines |
-| `commit-and-release-conventions` | 43 words | 77 lines |
+| `commit-and-release-conventions` | 43 words | 81 lines |
 | `construction-discipline` | 42 words | 107 lines |
 | `continuation-sanity-check` | 48 words | 62 lines |
 | `dirty-worktree-etiquette` | 66 words | 129 lines |
 | `failure-surfacing` | 44 words | 97 lines |
 | `frontend-design-discipline` | 67 words | 164 lines |
-| `production-operations-discipline` | 60 words | 108 lines |
+| `production-operations-discipline` | 60 words | 124 lines |
 | `resilience-bulkhead-discipline` | 48 words | 128 lines |
 | `review-stance` | 77 words | 81 lines |
 | `scope-discipline` | 35 words | 79 lines |
-| `sensitive-data-discipline` | 51 words | 74 lines |
+| `sensitive-data-discipline` | 51 words | 78 lines |
 | `twelve-rule-discipline` | 70 words | 174 lines |
 | `upstream-integration-triage` | 58 words | 185 lines |
 | **Total ambient** | **~802 words ≈ ~1,040 tokens** | (full bodies sum to ~30K tokens, loaded selectively) |

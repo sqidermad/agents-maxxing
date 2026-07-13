@@ -33,8 +33,12 @@ clean, honest, and free of tooling noise.
 
 ## Version tags
 
-- **Plain numbers only.** `1.2.0`, never `v1.2.0`. Pre-releases:
-  `1.2.0-alpha1`, `1.2.0-rc1`.
+- **Follow the repo's existing tag scheme — never mix schemes.** The
+  house default is plain numbers: `1.2.0`, not `v1.2.0`; pre-releases
+  `1.2.0-alpha1`, `1.2.0-rc1`. Exception: some ecosystems *mandate* a
+  prefix (Go modules require `v1.2.0`) — the ecosystem rule wins
+  there. Check `git tag --list` before tagging; a repo with both
+  `1.1.0` and `v1.2.0` breaks sorting and automation.
 - Tag only after the repo's checks pass on the exact commit being
   tagged.
 - Mark pre-releases as pre-releases in the forge UI

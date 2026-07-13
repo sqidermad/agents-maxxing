@@ -40,8 +40,12 @@ they don't have to.
 ## Personal identifiers (phones, national IDs, IMSI/IMEI, emails)
 
 - **Mask by default** in logs, error messages, test output, tickets,
-  and chat: keep enough to correlate (last 3–4 digits), drop the
-  rest. A raw phone number in a log line is a leak with a timestamp.
+  and chat: keep enough to correlate, hide enough to protect. Rule of
+  thumb: digit runs of 6+ keep only the last 3–4; anything shorter is
+  redacted entirely (keeping 4 digits of a 6-digit ID hides almost
+  nothing). Emails: mask the local part, keep the domain
+  (`m***@example.com`). A raw phone number in a log line is a leak
+  with a timestamp.
 - Masking belongs **in the code path**, not in your habits — if the
   service logs an identifier, fix the log line, don't just avoid
   looking at it.
