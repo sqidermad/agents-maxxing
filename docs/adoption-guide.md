@@ -123,6 +123,9 @@ PRs welcome. Ground rules:
    if your skill introduces a new trigger.
 8. **Update `docs/credits.md`** if your skill is derived from
    somewhere — base prompts, papers, internal docs (sanitised).
+9. **Run `make check`** before pushing. It validates frontmatter
+   (name equals folder, spec-legal names, description present and
+   under the cap), the README token table, and relative links.
 
 ## Stay in sync
 

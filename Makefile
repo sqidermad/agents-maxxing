@@ -1,4 +1,4 @@
-.PHONY: help install install-cursor install-codex install-claude uninstall doctor pull list dry-run
+.PHONY: help install install-cursor install-codex install-claude uninstall doctor pull list dry-run check
 
 help:
 	@echo "agents-maxxing — make targets"
@@ -9,6 +9,7 @@ help:
 	@echo "  make install-claude  install into Claude Code only"
 	@echo "  make uninstall       remove symlinks from all tools"
 	@echo "  make doctor          verify install state"
+	@echo "  make check           validate skills (frontmatter, names, token table, links)"
 	@echo "  make pull            git pull + re-install"
 	@echo "  make list            list skills in this repo"
 	@echo "  make dry-run         show what install.sh would do"
@@ -27,6 +28,9 @@ install-claude:
 
 uninstall:
 	@./uninstall.sh
+
+check:
+	@bash scripts/check.sh
 
 dry-run:
 	@./install.sh --dry-run
