@@ -6,6 +6,8 @@ description: >-
   summary follows, severity-ordered, file/line grounded. Use whenever the
   user uses words like "review", "audit", "look over", "check", "any
   issues with", "what's wrong with", or asks for a critical assessment.
+  Also use when the user pastes another model's or reviewer's findings
+  to act on — verify each claim before implementing any of it.
 ---
 
 # Review Stance
@@ -52,11 +54,28 @@ Don't pad with summary to fill space.
 - Findings without file/line references.
 - "Looks good!" without naming residual risks.
 
+## Triaging someone else's review
+
+When the user pastes findings from another model, a colleague, or a
+tool, the job is **verification, not implementation**:
+
+1. **Check every factual claim against the actual code** — file
+   contents, line counts, git state, runtime behaviour. Reviews sound
+   authoritative and are routinely partly wrong.
+2. Classify each item: **confirmed** (evidence found — fix if asked),
+   **refuted** (state the evidence that contradicts it — respectfully,
+   concretely), or **judgment call** (both positions defensible —
+   give a recommendation and let the user decide).
+3. If the external review catches an error in *your* earlier work,
+   say so plainly and own it. Credibility comes from the admission.
+4. Never implement a pasted review wholesale. Even a mostly-right
+   review usually contains one item that would make things worse.
+
 ## When to invoke
 
 User says any of: "review", "audit", "look over", "check this", "what's
 wrong with", "any issues", "critical assessment", "go through and
-verify".
+verify" — or pastes another reviewer's findings for you to act on.
 
 Skip when the user asks an open-ended "what do you think?" — that's
 brainstorming, not review.

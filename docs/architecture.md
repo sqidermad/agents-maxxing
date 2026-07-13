@@ -24,12 +24,15 @@ How `agents-maxxing` is wired and why.
                                                   discipline
 ```
 
-Twelve skills. One spine. Eleven specialised disciplines triggered at
-specific phases of the work. The diagram shows the core phase mapping;
-the later additions slot in as leaves too: `upstream-integration-triage`
-(Investigate), `resilience-bulkhead-discipline` (Construct),
-`failure-surfacing` (Verify), and `twelve-rule-discipline`
-(cross-cutting template).
+Fifteen skills. One spine. Fourteen specialised disciplines triggered
+at specific phases of the work. The diagram shows the core phase
+mapping; the later additions slot in as leaves too:
+`upstream-integration-triage` (Investigate),
+`resilience-bulkhead-discipline` and `production-operations-discipline`
+(Construct/Verify), `failure-surfacing` (Verify),
+`commit-and-release-conventions` (Communicate),
+`sensitive-data-discipline` (cross-cutting), and
+`twelve-rule-discipline` (cross-cutting template).
 
 ## Why a spine + leaves, not a single megadocument
 

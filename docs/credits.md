@@ -146,6 +146,26 @@ written by other engineers:
   framing (every rule must name the mistake it prevents) and the
   **200-line ceiling** on CLAUDE.md before compliance drops.
 
+## What came from real production scars
+
+Three skills are original to this repo, distilled from incidents and
+review cycles in real production work (details sanitised):
+
+- **`production-operations-discipline`** — born from a near-outage
+  where a deploy archive faithfully shipped a stale committed
+  virtualenv over a host's real one (ignored-but-tracked files still
+  ship). Every rule in it — artifact preflights, boot-check before
+  restart, matched rollback units, deletion caps — maps to a specific
+  thing that went wrong or almost did.
+- **`commit-and-release-conventions`** — accumulated from release
+  cycles: the `Closes #N` default-branch gotcha, broken tags that
+  must be annotated rather than deleted, attribution noise in
+  history.
+- **`sensitive-data-discipline`** — from operating services that
+  handle personal identifiers: masking in code paths (including
+  exception traces), synthetic test identifiers, secrets hygiene
+  around env files, backups, and HARs.
+
 ## What's not (yet) credited
 
 If this repo evolves to include skills derived from other public

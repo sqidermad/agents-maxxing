@@ -17,7 +17,7 @@ Claude, GPT, Gemini, future ones — sees the same disciplines.
 
 ## What's inside
 
-A spine + eleven specialised disciplines:
+A spine + fourteen specialised disciplines:
 
 - **`agent-operating-manual`** — the spine. Eleven invariants that
   govern all work (intent control, scope, verification, honesty), the
@@ -40,6 +40,16 @@ A spine + eleven specialised disciplines:
 - **`failure-surfacing`** — stop silent retry loops. When the same
   operation fails repeatedly, surface the failure with context and
   options instead of retrying invisibly.
+- **`commit-and-release-conventions`** — commits, tags, releases, PRs.
+  No AI attribution, plain-number tags (`1.2.0`, never `v1.2.0`),
+  `Closes #N` semantics, pre-release and broken-tag hygiene.
+- **`production-operations-discipline`** — touching live systems:
+  stage → validate → backup → apply → verify. Artifact preflights
+  (tracked junk ships!), never restart unproven code, matched
+  rollback units, deletion caps, test accounts only.
+- **`sensitive-data-discipline`** — secrets never leave storage
+  (redact values, off command lines, never committed); personal
+  identifiers masked everywhere, synthetic identifiers for tests.
 - **`answer-shape-discipline`** — final-answer brevity. 70-line cap.
   Prose for small tasks. No filler metaphors. No anti-comparison
   rhetoric.
@@ -121,28 +131,31 @@ Honest accounting before you install.
    invoke a skill.
 2. **On-demand (when triggered)** — the full skill body is loaded via
    `Read` only when the agent decides the skill applies. The other
-   eleven skills stay dormant.
+   fourteen skills stay dormant.
 
 **Current ambient cost per skill (description only):**
 
 | Skill | Description | Body (loaded on-demand) |
 | --- | --- | --- |
-| `agent-operating-manual` | 64 words | 113 lines |
-| `answer-shape-discipline` | 31 words | 115 lines |
+| `agent-operating-manual` | 64 words | 116 lines |
+| `answer-shape-discipline` | 31 words | 130 lines |
+| `commit-and-release-conventions` | 43 words | 77 lines |
 | `construction-discipline` | 42 words | 107 lines |
 | `continuation-sanity-check` | 48 words | 62 lines |
 | `dirty-worktree-etiquette` | 66 words | 129 lines |
 | `failure-surfacing` | 44 words | 97 lines |
 | `frontend-design-discipline` | 67 words | 164 lines |
+| `production-operations-discipline` | 60 words | 108 lines |
 | `resilience-bulkhead-discipline` | 48 words | 128 lines |
-| `review-stance` | 54 words | 62 lines |
+| `review-stance` | 77 words | 81 lines |
 | `scope-discipline` | 35 words | 79 lines |
+| `sensitive-data-discipline` | 51 words | 74 lines |
 | `twelve-rule-discipline` | 70 words | 174 lines |
 | `upstream-integration-triage` | 58 words | 185 lines |
-| **Total ambient** | **~627 words ≈ ~815 tokens** | (full bodies sum to ~25K tokens, loaded selectively) |
+| **Total ambient** | **~804 words ≈ ~1,045 tokens** | (full bodies sum to ~30K tokens, loaded selectively) |
 
 For context: a typical Claude / GPT coding session runs **50K–200K
-tokens**. The full skill index is **~0.4%–1.7% of session budget**.
+tokens**. The full skill index is **~0.5%–2.1% of session budget**.
 The 12-rule template recommends keeping any single `CLAUDE.md`-style
 file under 200 lines — skill bodies here hold to that ceiling
 (`make check` warns when one crosses it; the table above is verified
@@ -152,22 +165,22 @@ against the actual files by the same check).
 `~/.cursor/skills-cursor/` AND `~/.codex/skills/` when both exist, so
 a machine installed with the default `./install.sh` (which symlinks
 into both of those) effectively doubles the ambient cost in Cursor
-sessions to **~1,630 tokens**. Codex and Claude Code each read only
+sessions to **~2,090 tokens**. Codex and Claude Code each read only
 their own folder, so they always pay the single-tier cost. If you
 only use one tool, install for only that one:
 
 ```bash
-./install.sh --cursor   # Cursor only       (~815 tokens ambient)
-./install.sh --codex    # Codex only        (~815 tokens ambient)
-./install.sh --claude   # Claude Code only  (~815 tokens ambient)
-./install.sh            # all tools found   (~1,630 tokens in Cursor)
+./install.sh --cursor   # Cursor only       (~1,045 tokens ambient)
+./install.sh --codex    # Codex only        (~1,045 tokens ambient)
+./install.sh --claude   # Claude Code only  (~1,045 tokens ambient)
+./install.sh            # all tools found   (~2,090 tokens in Cursor)
 ```
 
 **Bottom line.** At default settings, the system is not pricey:
-under 2% of a typical session's budget even in dual-install mode.
+about 0.5–2% of a typical session's budget (double that in Cursor's dual-folder case).
 The full skill bodies (which would sum to a much larger number if all
 read at once) load only when the agent decides the trigger fires —
-which in practice is one or two per turn, not all twelve.
+which in practice is one or two per turn, not all fifteen.
 
 ## How to read the system
 
